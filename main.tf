@@ -11,7 +11,7 @@ terraform {
     organization = "demo-lab-hashicorp"
 
     workspaces {
-      name = "tfworkspace-master"
+      name = "platform-workspace-prod"
     }
   }
 }

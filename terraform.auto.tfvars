@@ -6,7 +6,6 @@ organization   = "demo-lab-hashicorp"
 oauth_token_id = "ot-piMSpsLL6AabsWSi"
 tag_names      = ["app"]
 
-
 triggers = {}
 
 
