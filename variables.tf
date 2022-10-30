@@ -142,7 +142,7 @@ variable "teams" {
   }))
   default = [
     {
-      name                    = "team1"
+      name                    = "acme_security"
       access                  = "admin"
       visibility              = {}
       managevcs               = false
@@ -155,7 +155,7 @@ variable "teams" {
       workspaces              = []
     },
     {
-      name                    = "team2"
+      name                    = "acme_appteam1"
       access                  = "admin"
       visibility              = {}
       managevcs               = false
