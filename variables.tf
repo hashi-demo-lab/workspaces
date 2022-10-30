@@ -108,16 +108,16 @@ variable "workspaces" {
   }))
   default = [
     {
-      name      = "app-demo-dev"
+      name      = "app-demoapp-aws-prod"
       dirMap    = { app-demo-dev = "test" }
-      vcs_repo  = "workspaces"
+      vcs_repo  = "tfc-basic-aws-ec2"
       tag_names = ["tag1", "tag2"]
       vars      = {}
     },
     {
-      name      = "app-demo-prod"
+      name      = "app-demoapp-azure-prod"
       dirMap    = { app-demo-prod = "" }
-      vcs_repo  = "workspaces"
+      vcs_repo  = "tfc-basic-aws-ec2"
       tag_names = ["tag3", "tag4"]
       vars      = {}
     }
