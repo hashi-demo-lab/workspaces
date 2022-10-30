@@ -109,15 +109,15 @@ variable "workspaces" {
   default = [
     {
       name      = "app-demoapp-aws-prod"
-      dirMap    = { app-demo-dev = "" }
+      dirMap    = { app-demoapp-aws-prod = "" }
       vcs_repo  = "tfc-basic-aws-ec2"
       tag_names = ["tag1", "tag2"]
       vars      = {}
     },
     {
       name      = "app-demoapp-azure-prod"
-      dirMap    = { app-demo-prod = "" }
-      vcs_repo  = "tfc-basic-aws-ec2"
+      dirMap    = { app-demoapp-azure-prod = "" }
+      vcs_repo  = "tfc-basic-azure-linuxvm"
       tag_names = ["tag3", "tag4"]
       vars      = {}
     }
@@ -146,11 +146,11 @@ variable "teams" {
       access                  = "admin"
       visibility              = {}
       managevcs               = false
-      manage_policies         = false
+      manage_policies         = true
       manage_providers        = false
       manage_modules          = false
-      manage_run_tasks        = false
-      manage_policy_overrides = false
+      manage_run_tasks        = true
+      manage_policy_overrides = true
       team_members            = ["acme9sec"]
       workspaces              = []
     },
@@ -164,7 +164,7 @@ variable "teams" {
       manage_modules          = false
       manage_run_tasks        = false
       manage_policy_overrides = false
-      team_members            = ["acme9sec"]
+      team_members            = ["acme9app1"]
       workspaces              = []
     }
   ]
