@@ -13,14 +13,14 @@ triggers = {}
 workspaces = [
   {
     name      = "app-demo-dev"
-    dirMap    = { app-demo-dev = "test" }
+    dirMap    = { app-demo-dev = "" }
     vcs_repo  = "tfc-basic-aws-ec2"
     tag_names = ["tag1", "tag2"]
     vars      = {}
   },
   {
     name      = "app-demo-prod"
-    dirMap    = { app-demo-prod = "prod" }
+    dirMap    = { app-demo-prod = "" }
     vcs_repo  = "tfc-basic-aws-ec2"
     tag_names = ["tag3", "tag4"]
     vars      = {}
