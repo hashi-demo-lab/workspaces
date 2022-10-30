@@ -37,6 +37,20 @@ module "workspaces" {
   sec_vars = {}
 }
 
+locals {
+  workspace_teams = { for team in var.teams : team.name => team }
+
+  team_to_workspace = flatten([for team in local.workspace_teams : [
+    for workspace in team.workspaces : {
+      team             = team.name
+      workspace_access = team.access
+      workspace        = workspace
+    }
+    ]
+  ])
+}
+
+
 resource "tfe_team" "team" {
   for_each = { for team in var.teams : team.name => team }
 
@@ -59,16 +73,24 @@ resource "tfe_team_members" "team_members" {
   usernames = each.value.team_members
 }
 
-# Need to loop through each team acccess #not teams
-/* resource "tfe_team_access" "team_access" {
-  for_each = { for team in var.teams : team.name => team }
 
-  access       = "admin"
-  team_id      = tfe_team.team[each.key].id
-  workspace_id = ""
+data "tfe_workspace_ids" "all-workspaces" {
+  names        = ["*"]
+  organization = var.organization
+}
 
-} */
 
+
+resource "tfe_team_access" "team_access" {
+
+  for_each = { for workspace_access in local.team_to_workspace : "${workspace_access.team}-${workspace_access.workspace}" => workspace_access }
+
+  access       = each.value.workspace_access
+  team_id      = tfe_team.team[each.value["team"]].id
+  //workspace_id = data.tfe_workspace_ids.all-workspaces.full_names[each.value["workspace"]].id
+  workspace_id = (lookup(data.tfe_workspace_ids.all-workspaces.full_names,each.value["workspace"])).id
+
+}
 
 output "workspaces" {
   value = module.workspaces

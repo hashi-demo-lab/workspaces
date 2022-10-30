@@ -165,7 +165,7 @@ variable "teams" {
       manage_run_tasks        = false
       manage_policy_overrides = false
       team_members            = ["acme9app1"]
-      workspaces              = []
+      workspaces              = ["app-demoapp-aws-prod", "app-demoapp-azure-prod"]
     }
   ]
 }
