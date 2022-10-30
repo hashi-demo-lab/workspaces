@@ -21,7 +21,7 @@ workspaces = [
   {
     name      = "app-demoapp-azure-prod"
     dirMap    = { app-demoapp-azure-prod = "" }
-    vcs_repo  = "tfc-basic-azure-linuxvm"
+    vcs_repo  = "tfc-basic-azure-vm"
     tag_names = ["tag3", "tag4"]
     vars      = {}
   }
