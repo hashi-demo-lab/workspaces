@@ -87,8 +87,7 @@ resource "tfe_team_access" "team_access" {
 
   access       = each.value.workspace_access
   team_id      = tfe_team.team[each.value["team"]].id
-  //workspace_id = data.tfe_workspace_ids.all-workspaces.full_names[each.value["workspace"]].id
-  workspace_id = (lookup(data.tfe_workspace_ids.all-workspaces.full_names,each.value["workspace"])).id
+  workspace_id = lookup(data.tfe_workspace_ids.all-workspaces.ids,each.value["workspace"])
 
 }
 
