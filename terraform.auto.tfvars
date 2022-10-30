@@ -12,16 +12,16 @@ triggers = {}
 # workspace array
 workspaces = [
   {
-    name      = "app-demo-dev"
-    dirMap    = { app-demo-dev = "" }
+    name      = "app-demoapp-aws-prod"
+    dirMap    = { app-demoapp-aws-prod = "" }
     vcs_repo  = "tfc-basic-aws-ec2"
     tag_names = ["tag1", "tag2"]
     vars      = {}
   },
   {
-    name      = "app-demo-prod"
-    dirMap    = { app-demo-prod = "" }
-    vcs_repo  = "tfc-basic-aws-ec2"
+    name      = "app-demoapp-azure-prod"
+    dirMap    = { app-demoapp-azure-prod = "" }
+    vcs_repo  = "tfc-basic-azure-linuxvm"
     tag_names = ["tag3", "tag4"]
     vars      = {}
   }
