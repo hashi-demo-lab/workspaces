@@ -1,11 +1,11 @@
 variable "aws_secret_access_key" {
-  description = "AWS secret key - set in env vars"
+  description = "AWS secret key - set in env vars DO NOT USE - to be removed"
   type        = string
   sensitive   = true
 }
 
 variable "aws_access_key_id" {
-  description = "AWS key id - set in env vars"
+  description = "AWS key id - set in env vars DO NOT USE - to be removed"
   type        = string
   sensitive   = true
 }
