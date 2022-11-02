@@ -75,6 +75,9 @@ resource "tfe_team_members" "team_members" {
 
 
 data "tfe_workspace_ids" "all-workspaces" {
+  depends_on = [
+    module.workspaces
+  ]
   names        = ["*"]
   organization = var.organization
 }
